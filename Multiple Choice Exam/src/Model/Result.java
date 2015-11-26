@@ -1,30 +1,31 @@
 package Model;
 
-public class Result {
-	private User student;
-	private Exam exam;
-	private int score;
-	
-	public User getStudent() {
-		return student;
-	}
-	public void setStudent(User student) {
-		this.student = student;
-	}
+import java.io.Serializable;
 
-	public Exam getExam() {
-		return exam;
-	}
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 
-	public void setExam(Exam exam) {
-		this.exam = exam;
-	}
+import com.sun.istack.internal.Nullable;
 
-	public int getScore() {
+public class Result implements Serializable{
+	@EmbeddedId
+	private result_id resultID;
+	private Integer score;
+	@Column(nullable=false)
+	public Integer getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	@Column(nullable=false)
+	public result_id getResultID() {
+		return resultID;
+	}
+
+	public void setResultID(result_id resultID) {
+		this.resultID = resultID;
+	}
+
+	public void setScore(Integer score) {
 		this.score = score;
 	}
 }
