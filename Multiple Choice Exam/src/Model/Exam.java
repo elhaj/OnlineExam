@@ -52,6 +52,8 @@ public class Exam implements Serializable{
 //	cal.set(Calendar.MILLISECOND, 0);
 //	long time = cal.getTimeInMillis();
 	
+	
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false)
 	public Date getDate() {
