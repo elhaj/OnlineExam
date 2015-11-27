@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Question implements Serializable{
 
 	private Integer questionID;
@@ -50,7 +52,7 @@ public class Question implements Serializable{
 	public Integer getQuestionID() {
 		return questionID;
 	}
-	@OneToMany(fetch=FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy="questionID")
+	@OneToMany(fetch=FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy="question")
 	public Set<Answer> getAnswers() {
 		return answers;
 	}

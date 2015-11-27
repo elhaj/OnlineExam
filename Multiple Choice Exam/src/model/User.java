@@ -1,15 +1,17 @@
-package Model;
+package model;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class User implements Serializable{
 
 	private Integer userID;
@@ -65,7 +67,7 @@ public class User implements Serializable{
 		return userID;
 	}
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="userID")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="professor")
 	public Set<Exam> getExams() {
 		return exams;
 	}
@@ -73,7 +75,7 @@ public class User implements Serializable{
 		this.exams = exams;
 	}
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="userID")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="student")
 	public Set<Result> getResults() {
 		return results;
 	}

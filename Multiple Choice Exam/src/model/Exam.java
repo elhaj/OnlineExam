@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
 public class Exam implements Serializable{
 
 	private Integer examID;
@@ -24,6 +26,7 @@ public class Exam implements Serializable{
 	private Integer duration;
 	private User professor;
 	private Set<Question> questions = new HashSet<Question>();
+	private Set<Result> results = new HashSet<Result>();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userID", nullable = false)
@@ -80,13 +83,22 @@ public class Exam implements Serializable{
 		return examID;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "examID")
+	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "exam")
 	public Set<Question> getQuestions() {
 		return questions;
 	}
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "exam")
+	public Set<Result> getResults() {
+		return results;
+	}
+
+	public void setResults(Set<Result> results) {
+		this.results = results;
 	}
 
 }
