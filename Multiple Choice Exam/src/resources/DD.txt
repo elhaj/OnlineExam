@@ -1,0 +1,103 @@
+
+    create table Answer (
+        answerID integer not null auto_increment,
+        answer varchar(255) not null,
+        questionID integer not null,
+        primary key (answerID)
+    );
+
+    create table Exam (
+        examID integer not null auto_increment,
+        date datetime not null,
+        duration integer not null,
+        title varchar(255) not null,
+        userID integer not null,
+        primary key (examID)
+    );
+
+    create table Question (
+        questionID integer not null auto_increment,
+        correctAnswerID integer not null,
+        question varchar(255) not null,
+        examID integer not null,
+        primary key (questionID)
+    );
+
+    create table Result (
+        resultID integer not null auto_increment,
+        score integer not null,
+        examID integer not null,
+        userID integer not null,
+        primary key (resultID)
+    );
+
+    create table User (
+        userID integer not null auto_increment,
+        email varchar(255),
+        fullName varchar(255),
+        password varchar(255),
+        profileType varchar(255) not null,
+        userName varchar(255),
+        primary key (userID)
+    );
+
+    alter table User 
+        add constraint UK_e6gkqunxajvyxl5uctpl2vl2p unique (email);
+
+    alter table User 
+        add constraint UK_hl8fftx66p59oqgkkcfit3eay unique (userName);
+
+    alter table Answer 
+        add constraint FK_lkl64yybhnm21cvfguqqghs0b 
+        foreign key (questionID) 
+        references Question (questionID);
+
+    alter table Exam 
+        add constraint FK_dp5b9bgf0lt4x2r6gfuv9pgss 
+        foreign key (userID) 
+        references User (userID);
+
+    alter table Question 
+        add constraint FK_s7on5nrunl3i3cmwrnjimjfjw 
+        foreign key (examID) 
+        references Exam (examID);
+
+    alter table Result 
+        add constraint FK_qalap5ufra82utf6pug4qt2w0 
+        foreign key (examID) 
+        references Exam (examID);
+
+    alter table Result 
+        add constraint FK_9pykwxk860ldigck4ucrqx4yx 
+        foreign key (userID) 
+        references User (userID);
+
+    alter table Answer 
+        drop 
+        foreign key FK_lkl64yybhnm21cvfguqqghs0b;
+
+    alter table Exam 
+        drop 
+        foreign key FK_dp5b9bgf0lt4x2r6gfuv9pgss;
+
+    alter table Question 
+        drop 
+        foreign key FK_s7on5nrunl3i3cmwrnjimjfjw;
+
+    alter table Result 
+        drop 
+        foreign key FK_qalap5ufra82utf6pug4qt2w0;
+
+    alter table Result 
+        drop 
+        foreign key FK_9pykwxk860ldigck4ucrqx4yx;
+
+    drop table if exists Answer;
+
+    drop table if exists Exam;
+
+    drop table if exists Question;
+
+    drop table if exists Result;
+
+    drop table if exists User;
