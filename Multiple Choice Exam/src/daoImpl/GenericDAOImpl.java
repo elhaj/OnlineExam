@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 import dao.GenericDAO;
@@ -13,8 +14,14 @@ import model.EntityBean;
 @Repository
 public class GenericDAOImpl implements GenericDAO<EntityBean> {
 
-	@Autowired
 	private SessionFactory sessionFactory;
+	public GenericDAOImpl() {
+		// TODO Auto-generated constructor stub
+		Configuration cfg = new Configuration();
+		cfg.configure("resources/hibernate.cfg.xml");
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+		sessionFactory = cfg.buildSessionFactory(builder.build());
+	}
 
 	@Override
 	public void create(EntityBean entity) {

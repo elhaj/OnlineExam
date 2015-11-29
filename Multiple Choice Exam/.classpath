@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="D:/MUM/Spring/reflections-0.9.5.jar"/>
 	<classpathentry kind="lib" path="D:/MUM/Spring/slf4j-1.7.13/slf4j-simple-1.7.13.jar"/>
 	<classpathentry kind="lib" path="D:/MUM/Spring/guava-14.0.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
