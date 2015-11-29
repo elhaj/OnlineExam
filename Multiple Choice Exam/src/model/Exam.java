@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Exam implements Serializable{
 
-	private Integer examID;
+	private String examID;
 	private String title;
 	private Date date;
 	private Integer duration;
@@ -58,7 +58,7 @@ public class Exam implements Serializable{
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
+	@Column(nullable=false,length=8)
 	public Date getDate() {
 		return date;
 	}
@@ -77,9 +77,8 @@ public class Exam implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue
 	@Column(nullable = false)
-	public Integer getExamID() {
+	public String getExamID() {
 		return examID;
 	}
 

@@ -14,6 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
 	<classpathentry kind="lib" path="D:/MUM/Spring/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar"/>
 	<classpathentry kind="lib" path="D:/MUM/Spring/hibernate-release-4.3.11.Final/lib/optional/ehcache/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="D:/MUM/Spring/reflections-0.9.5.jar"/>
