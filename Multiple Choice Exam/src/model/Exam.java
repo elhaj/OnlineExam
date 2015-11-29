@@ -18,7 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Exam implements Serializable{
+public class Exam implements Serializable, EntityBean{
 
 	private String examID;
 	private String title;
@@ -34,6 +34,10 @@ public class Exam implements Serializable{
 		return professor;
 	}
 
+	public void setID(String examID)
+	{
+		this.examID = examID;
+	}
 	public void setProfessor(User professor) {
 		this.professor = professor;
 	}

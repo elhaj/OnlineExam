@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import com.sun.istack.internal.Nullable;
 
 @Entity
-public class Result implements Serializable {
+public class Result implements Serializable , EntityBean{
 	
 	private Integer resultID;
 	private Integer score;

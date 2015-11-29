@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class User implements Serializable{
+public class User implements Serializable, EntityBean{
 
 	private Integer userID;
 	private String userName;

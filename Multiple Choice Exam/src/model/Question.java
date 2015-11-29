@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Question implements Serializable{
+public class Question implements Serializable, EntityBean{
 
 	private Integer questionID;
 	private String question;

@@ -59,4 +59,12 @@ public class GenericDAOImpl implements GenericDAO<EntityBean> {
 		return entity;
 	}
 
+	@Override
+	public EntityBean findByID(Class classz, String id) {
+		// TODO Auto-generated method stub
+		EntityBean entity = null;
+		entity = (EntityBean) sessionFactory.getCurrentSession().get(classz, id);
+		return entity;
+	}
+
 }

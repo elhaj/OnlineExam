@@ -10,7 +10,9 @@ public interface GenericDAO<T extends EntityBean> {
 
 	public void create(T entity);
 	public T findByID(Class classz, Integer id);
+	public T findByID(Class classz, String id);
 	public void update(T entity);
 	public List<T> findMany(Query query);
 	public T findOne(Query query);
+	
 }
